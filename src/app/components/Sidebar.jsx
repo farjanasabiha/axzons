@@ -1,17 +1,15 @@
 import Link from "next/link";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { FaHome } from "react-icons/fa";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { FiCpu } from "react-icons/fi";
 import { MdHomeRepairService } from "react-icons/md";
 import { TbWorld } from "react-icons/tb";
 import Image from "next/image";
-
 import logo from '../../../public/Logo_Green_White.svg'
 
 const Sidebar = () => {
   return (
-    <div className="w-64 bg-primary shadow-md h-screen p-5 hidden md:block fixed top-0 left-0">
+    <div className="bg-primary shadow-md h-screen p-5 hidden md:block fixed top-0 left-0">
       <div className="text-4xl font-bold text-center mx-auto mb-6">
         <Image
           src={logo}
