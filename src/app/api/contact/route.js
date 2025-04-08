@@ -43,6 +43,8 @@ export async function POST(req) {
     );
   }
 }
+
+
 export async function GET(req) {
   try {
     // Connect to the database

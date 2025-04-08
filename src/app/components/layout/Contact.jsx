@@ -51,7 +51,7 @@ const Contact = () => {
           <div className="col-span-2">
             <div className="flex items-center justify-center h-full">
               <div>
-                <h1 className="text-[#d5b9ef] font-extrabold text-center text-8xl">
+                <h1 className="text-[#d5b9ef] font-extrabold text-center text-4xl  md:text-5xl lg:text-8xl">
                   Get In Touch{" "}
                 </h1>
                 <p className="  my-4 text-gray-500 text-center">
@@ -68,13 +68,14 @@ const Contact = () => {
             className="col-span-4 space-y-6 border-2 p-10 rounded-lg border-[#ebe2f3]"
           >
             {/* First & Last Name */}
-            <div className="grid grid-cols-4 md:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <div className="flex flex-col">
                 <label className="font-semibold text-gray-800">
                   First Name
                 </label>
                 <input
                   name="firstName"
+                  required
                   placeholder="John"
                   type="text"
                   className="text-gray-700 bg-transparent border-b-2 mt-1 border-primary outline-none focus:border-secondary focus:ring-1 focus:ring-secondary pl-0 p-[0.7rem]"
@@ -85,6 +86,7 @@ const Contact = () => {
                 <input
                   placeholder="Smith"
                   name="lastName"
+                  required
                   type="text"
                   className="text-gray-700 border-b-2 bg-transparent mt-1 border-primary outline-none focus:border-secondary focus:ring-1 focus:ring-secondary pl-0 p-[0.7rem]"
                 />
@@ -98,6 +100,7 @@ const Contact = () => {
                 <input
                   placeholder="jhonsmith@gmail.com"
                   name="email"
+                  required
                   type="email"
                   className="text-gray-700 border-b-2 bg-transparent mt-1 border-primary outline-none focus:border-secondary focus:ring-1 focus:ring-secondary pl-0 p-[0.7rem] "
                 />
@@ -109,6 +112,7 @@ const Contact = () => {
                 <input
                   placeholder="+1 (328) 612-297"
                   name="phone"
+                  required
                   type="tel"
                   className="text-gray-700 border-b-2 mt-1 bg-transparent border-primary outline-none focus:border-secondary focus:ring-1 focus:ring-secondary pl-0 p-[0.7rem]"
                 />
@@ -139,6 +143,7 @@ const Contact = () => {
               </label>
               <textarea
                 name="message"
+                required
                 className="text-gray-700 border-b-2 mt-1 bg-transparent border-primary outline-none focus:border-secondary focus:ring-1 focus:ring-secondary pl-0 p-[0.7rem]"
                 rows={6}
                 placeholder="Enter you r message here..."

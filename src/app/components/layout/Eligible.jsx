@@ -6,8 +6,8 @@ import { MenuIcon, X, ArrowRight } from "lucide-react";
 export default function Eligible() {
   return (
     <section className=" py-14">
-      <div className=" container mx-auto px-8">
-        <div className=" flex items-center flex-col  space-y-10 md:space-y-0 xl:flex-row  xl:space-x-[10rem]  justify-center">
+      <div className=" container mx-auto md:px-8">
+        <div className=" space-y-10 md:space-y-0   flex items-center justify-center gap-16 flex-col lg:flex-row">
           <Image
             src={"/homecare-blob.webp"}
             alt="man"

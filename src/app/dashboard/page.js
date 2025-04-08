@@ -221,63 +221,62 @@ const Page = () => {
           <div>
             {/* Toggle Start */}
 
-            <SidebarDrawer className='bg-white'
+            <SidebarDrawer
+              className="bg-white"
               open={sidebarOpen}
               setOpen={setSidebarOpen}
               direction={"left"}
               outsideClose={true}
             >
-              <DrawerContent className='bg-white'>
-
-
-                <div className ="p-3">
-                        <ul className="space-y-4">
-                          <li>
-                            <Link
-                              href="/"
-                              className="text-white font-semibold hover:bg-white p-2 hover:text-primary transition duration-200 flex items-center justify-start gap-4"
-                            >
-                              <FaHome className="text-2xl" />
-                              Home
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/about"
-                              className="text-white font-semibold hover:bg-white p-2 hover:text-primary transition duration-200 flex items-center justify-start gap-4"
-                            >
-                              <FiCpu className="text-2xl" />
-                              About
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/service"
-                              className="text-white font-semibold hover:bg-white p-2 hover:text-primary transition duration-200 flex items-center justify-start gap-4"
-                            >
-                              <MdHomeRepairService className="text-2xl" />
-                              Service
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/portfolio"
-                              className="text-white font-semibold hover:bg-white p-2 hover:text-primary transition duration-200 flex items-center justify-start gap-4"
-                            >
-                              <TbWorld className="text-2xl" />
-                              Portfolio
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/"
-                              className="text-white font-semibold hover:bg-white p-2 hover:text-primary transition duration-200 flex items-center justify-start gap-4"
-                            >
-                              <MdOutlineDashboardCustomize className="text-2xl" />
-                              Dashboard
-                            </Link>
-                          </li>
-                        </ul>
+              <DrawerContent className="bg-white">
+                <div className="p-3">
+                  <ul className="space-y-4">
+                    <li>
+                      <Link
+                        href="/"
+                        className="text-white font-semibold hover:bg-white p-2 hover:text-primary transition duration-200 flex items-center justify-start gap-4"
+                      >
+                        <FaHome className="text-2xl" />
+                        Home
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/about"
+                        className="text-white font-semibold hover:bg-white p-2 hover:text-primary transition duration-200 flex items-center justify-start gap-4"
+                      >
+                        <FiCpu className="text-2xl" />
+                        About
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/service"
+                        className="text-white font-semibold hover:bg-white p-2 hover:text-primary transition duration-200 flex items-center justify-start gap-4"
+                      >
+                        <MdHomeRepairService className="text-2xl" />
+                        Service
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/portfolio"
+                        className="text-white font-semibold hover:bg-white p-2 hover:text-primary transition duration-200 flex items-center justify-start gap-4"
+                      >
+                        <TbWorld className="text-2xl" />
+                        Portfolio
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/"
+                        className="text-white font-semibold hover:bg-white p-2 hover:text-primary transition duration-200 flex items-center justify-start gap-4"
+                      >
+                        <MdOutlineDashboardCustomize className="text-2xl" />
+                        Dashboard
+                      </Link>
+                    </li>
+                  </ul>
                 </div>
               </DrawerContent>
             </SidebarDrawer>
@@ -348,33 +347,53 @@ const Page = () => {
       {/* View Modal */}
       {selectedUser && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 ">
-          <div className="bg-white rounded-xl shadow-lg w-full max-w-md p-6 relative">
+          <div className="bg-primary rounded-xl shadow-lg w-full max-w-lg p-6 relative">
             <button
               onClick={handleCloseModal}
-              className="absolute top-2 right-2 text-xl font-bold text-gray-600 hover:text-red-500"
+              className="absolute top-5 right-4 w-10 h-10 flex items-center justify-center text-2xl bg-white text-black rounded-full shadow hover:text-primary "
             >
               ×
             </button>
-            <h2 className="text-xl font-semibold mb-4">User Details</h2>
-            <div className="space-y-2 text-sm">
-              <p>
-                <strong>First Name:</strong> {selectedUser.firstName}
-              </p>
-              <p>
-                <strong>Last Name:</strong> {selectedUser.lastName}
-              </p>
-              <p>
-                <strong>Email:</strong> {selectedUser.email}
-              </p>
-              <p>
-                <strong>Phone:</strong> {selectedUser.phone}
-              </p>
-              <p>
-                <strong>Service Type:</strong> {selectedUser.serviceType}
-              </p>
-              <p>
-                <strong>Message:</strong> {selectedUser.message}
-              </p>
+            <h2 className="text-3xl font-semibold mb-10 text-white text-center ">
+              User Details
+            </h2>
+            <div className="space-y-4 text-sm">
+              <div className="text-white w-full flex items-center justify-start gap-5 ">
+                <div className="w-1/3 font-bold text-base">First Name:</div>
+                <div className="w-full bg-purple-400 py-2 px-4 rounded-md">
+                  {selectedUser.firstName}
+                </div>
+              </div>
+              <div className="text-white w-full flex items-center justify-start gap-5 ">
+                <div className="w-1/3 font-bold text-base">Last Name:</div>
+                <div className="w-full bg-purple-400 py-2 px-4 rounded-md">
+                  {selectedUser.lastName}
+                </div>
+              </div>
+              <div className="text-white w-full flex items-center justify-start gap-5 ">
+                <div className="w-1/3 font-bold text-base">Email:</div>
+                <div className="w-full bg-purple-400 py-2 px-4 rounded-md">
+                  {selectedUser.email}
+                </div>
+              </div>
+              <div className="text-white w-full flex items-center justify-start gap-5 ">
+                <div className="w-1/3 font-bold text-base">Phone : </div>
+                <div className="w-full bg-purple-400 py-2 px-4 rounded-md">
+                  {selectedUser.phone}
+                </div>
+              </div>
+              <div className="text-white w-full flex items-center justify-start gap-5 ">
+                <div className="w-1/3 font-bold text-base">Service Type:</div>
+                <div className="w-full bg-purple-400 py-2 px-4 rounded-md">
+                  {selectedUser.serviceType}
+                </div>
+              </div>
+              <div className="text-white w-full flex items-center justify-start gap-5 ">
+                <div className="w-1/3 font-bold text-base">Message:</div>
+                <div className="w-full bg-purple-400 py-2 px-4 rounded-md">
+                  {selectedUser.message}
+                </div>
+              </div>
             </div>
           </div>
         </div>
