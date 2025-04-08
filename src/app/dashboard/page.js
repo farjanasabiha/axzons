@@ -22,6 +22,7 @@ import {
   DrawerContent,
 } from "../components/core/drawer/vaul-sidebar";
 import Link from "next/link";
+import Swal from "sweetalert2";
 const Page = () => {
   const [info, setInfo] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -66,21 +67,20 @@ const Page = () => {
     setFilteredData(updatedData);
   };
 
-  const handleDelete = async (id) => {
-    const confirmed = window.confirm("Are you sure you want to delete?");
-    if (!confirmed) return;
+  //   const confirmed = window.confirm("Are you sure you want to delete?");
+  //   if (!confirmed) return;
 
-    const updatedInfo = info.filter((item) => item._id !== id);
-    setInfo(updatedInfo);
+  //   const updatedInfo = info.filter((item) => item._id !== id);
+  //   setInfo(updatedInfo);
 
-    try {
-      await fetch(`/api/contact/${id}`, {
-        method: "DELETE",
-      });
-    } catch (error) {
-      console.error("Delete failed", error);
-    }
-  };
+  //   try {
+  //     await fetch(`/api/contact/${id}`, {
+  //       method: "DELETE",
+  //     });
+  //   } catch (error) {
+  //     console.error("Delete failed", error);
+  //   }
+  // };
 
   const handleView = (user) => {
     setSelectedUser(user);
@@ -89,6 +89,36 @@ const Page = () => {
   const handleCloseModal = () => {
     setSelectedUser(null);
   };
+
+const handleDelete = async (id) => {
+  // Show confirmation popup
+  const result = await Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Yes, delete it!",
+    cancelButtonText: "Cancel",
+  });
+
+  // If user confirms deletion
+  if (result.isConfirmed) {
+    const updatedInfo = info.filter((item) => item._id !== id);
+    setInfo(updatedInfo);
+
+    try {
+      await fetch(`/api/contact/${id}`, {
+        method: "DELETE",
+      });
+      // Show success popup
+      Swal.fire("Deleted!", "Your file has been deleted.", "success");
+    } catch (error) {
+      console.error("Delete failed", error);
+      // Show error popup
+      Swal.fire("Error!", "There was an issue deleting the item.", "error");
+    }
+  }
+};
 
   const columns = [
     {
@@ -138,7 +168,7 @@ const Page = () => {
         <div className="flex gap-2">
           <button
             onClick={() => handleView(row)}
-            className="px-3 py-1 text-xl  text-green-600 rounded"
+            className="px-3 py-1 text-xl  text-primary rounded"
           >
             <FaEye />
           </button>
